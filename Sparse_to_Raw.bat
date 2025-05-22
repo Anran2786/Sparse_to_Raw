@@ -12,13 +12,17 @@ for /r %%i in (*.img) do (
 )
 :break
 if defined sparse (
-    echo 尝试转换%sparse%
+    echo 尝试转换 "%filename%"
     %tool% "%sparse%" "%sparse:~0,-4%_Raw.bin" >nul 2>&1
-::    echo %filename:~0,-4%_Raw.bin
-::    forfiles /s /m %filename:~0,-4%_Raw.bin /c "cmd /c echo @fsize"
-::为啥啊这段会给上面simg2img给重新执行一遍，想不通，先不管了
+    echo.
+    echo 转换完成，输出文件："%filename:~0,-4%_Raw.bin"
+rem echo %filename:~0,-4%_Raw.bin
+rem forfiles /s /m %filename:~0,-4%_Raw.bin /c "cmd /c echo @fsize"
+rem 为啥啊这段会给上面simg2img给重新执行一遍，想不通，先不管了
+rem （铸币bat，::还不是注释会留空行，排查半天才明白得用rem）
 ) else (
     echo 未找到需要进行转换的文件
 )
-
-pause
+echo.
+echo 窗口将在8秒后关闭
+timeout /t 8 >nul
