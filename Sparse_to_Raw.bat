@@ -14,6 +14,7 @@ for /r %%i in (*.img) do (
 if defined sparse (
     echo 尝试转换 "%filename%"
     %tool% "%sparse%" "%sparse:~0,-4%_Raw.bin" >nul 2>&1
+    ren "%sparse%" "%filename:~0,-4%.Sparse"
     echo.
     echo 转换完成，输出文件："%filename:~0,-4%_Raw.bin"
 rem echo %filename:~0,-4%_Raw.bin
