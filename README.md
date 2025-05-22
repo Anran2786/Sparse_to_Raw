@@ -1,2 +1,5 @@
 # Sparse_to_Raw
-make simg2img  ̶m̶o̶r̶e̶ ̶e̶a̶s̶y̶e̶r̶ great again
+主要是给自己用的
+功能字面意思
+
+所使用的*[simg2img_win](https://github.com/KinglyWayne/simg2img_win)*
